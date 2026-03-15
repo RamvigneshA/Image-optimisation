@@ -1,0 +1,22 @@
+{
+  "name": "nextjs-image-engine-lab",
+  "version": "1.0.0",
+  "description": "Simulate a real-world frontend build pipeline for optimizing images",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build-images.js"
+  },
+  "keywords": [
+    "image",
+    "optimization",
+    "pipeline",
+    "sharp",
+    "nextjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "sharp": "^0.33.2"
+  }
+}

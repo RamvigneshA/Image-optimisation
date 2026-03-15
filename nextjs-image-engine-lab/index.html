@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Image Engine Lab</title>
+    
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        /* 
+           This CSS applies to our custom <smart-image> tag.
+           We want it to behave like a block-level wrapper. 
+        */
+        smart-image {
+            display: block;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 
+           Ensure the internal <img> scales correctly inside the wrapper 
+        */
+        smart-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            /* A nice fade-in animation to simulate Next.js loading */
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .code-preview {
+            background-color: #2b2b2b;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Custom Next.js <code>&lt;Image /&gt;</code> Engine</h1>
+        <p>This page uses a custom Web Component (<code>&lt;smart-image&gt;</code>) that automatically fetches a JSON manifest and builds a complex, perfectly-optimized <code>&lt;picture&gt;</code> tag on the fly.</p>
+    </header>
+
+        <section class="demo-section">
+            <h2>Scenario 1: Build-Time (Manifest System)</h2>
+            <p>This image uses the <code>image-manifest.json</code> we generated during the build step.</p>
+            <smart-image 
+                src="hero.jpg"
+                alt="City Hero Image" 
+            ></smart-image>
+        </section>
+
+        <section class="demo-section" style="margin-top: 4rem; border-top: 2px dashed #ccc; padding-top: 2rem;">
+            <h2>Scenario 2: Dynamic (On-Demand System) 🌟</h2>
+            <p>This image DOES NOT exist in the <code>dist/</code> folder. It is being generated <strong>on-the-fly</strong> by our local Express server right now!</p>
+            
+            <dynamic-image 
+                src="nature.jpg"
+                alt="Nature Landscape" 
+                sizes="(max-width: 768px) 100vw, 800px"
+            ></dynamic-image>
+        </section>
+
+        <section class="code-preview">
+            <h3>DX vs Architecture:</h3>
+            <p>Notice how easy it is to add a new image now. No build step required for Scenario 2!</p>
+            <pre><code>&lt;dynamic-image src="nature.jpg" ... /&gt;</code></pre>
+        </section>
+    </main>
+
+    <!-- Load the engines -->
+    <script src="script.js"></script>
+    <script src="dynamic-engine.js"></script>
+</body>
+</html>

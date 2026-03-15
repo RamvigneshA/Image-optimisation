@@ -1,0 +1,90 @@
+{
+  "hero.jpg": {
+    "avif": [
+      {
+        "width": 400,
+        "src": "/dist/images/hero-400.avif"
+      },
+      {
+        "width": 800,
+        "src": "/dist/images/hero-800.avif"
+      },
+      {
+        "width": 1200,
+        "src": "/dist/images/hero-1200.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "src": "/dist/images/hero-400.webp"
+      },
+      {
+        "width": 800,
+        "src": "/dist/images/hero-800.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/dist/images/hero-1200.webp"
+      }
+    ],
+    "jpeg": [
+      {
+        "width": 400,
+        "src": "/dist/images/hero-400.jpeg"
+      },
+      {
+        "width": 800,
+        "src": "/dist/images/hero-800.jpeg"
+      },
+      {
+        "width": 1200,
+        "src": "/dist/images/hero-1200.jpeg"
+      }
+    ]
+  },
+  "nature.jpg": {
+    "avif": [
+      {
+        "width": 400,
+        "src": "/dist/images/nature-400.avif"
+      },
+      {
+        "width": 800,
+        "src": "/dist/images/nature-800.avif"
+      },
+      {
+        "width": 1200,
+        "src": "/dist/images/nature-1200.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "src": "/dist/images/nature-400.webp"
+      },
+      {
+        "width": 800,
+        "src": "/dist/images/nature-800.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/dist/images/nature-1200.webp"
+      }
+    ],
+    "jpeg": [
+      {
+        "width": 400,
+        "src": "/dist/images/nature-400.jpeg"
+      },
+      {
+        "width": 800,
+        "src": "/dist/images/nature-800.jpeg"
+      },
+      {
+        "width": 1200,
+        "src": "/dist/images/nature-1200.jpeg"
+      }
+    ]
+  }
+}
