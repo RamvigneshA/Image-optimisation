@@ -1,0 +1,21 @@
+{
+  "name": "image-processing-lab",
+  "version": "1.0.0",
+  "description": "A lab for learning image optimization and format conversion using Node.js and sharp.",
+  "main": "index.js",
+  "scripts": {
+    "resize": "node scripts/resize.js",
+    "webp": "node scripts/convert-webp.js",
+    "avif": "node scripts/convert-avif.js"
+  },
+  "keywords": [
+    "image",
+    "optimization",
+    "sharp"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.33.2"
+  }
+}
