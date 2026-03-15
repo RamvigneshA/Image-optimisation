@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Image Formats Comparison</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Image Formats Comparison</h1>
+        <p>Comparing PNG vs JPEG vs WebP vs AVIF for the exact same image.</p>
+        <div class="instructions">
+            <strong>DevTools Experiment:</strong>
+            <ol>
+                <li>Open DevTools and go to the <strong>Network</strong> tab.</li>
+                <li>Filter by "Img". Complete a hard reload (Ctrl+Shift+R or Cmd+Shift+R).</li>
+                <li>Look at the <strong>Size</strong> column and compare the payload sizes for the different formats.</li>
+            </ol>
+        </div>
+    </header>
+
+    <main class="grid-container">
+        <!-- PNG -->
+        <section class="card format-card">
+            <h2>PNG</h2>
+            <p class="desc">Lossless, but usually huge file sizes for photos.</p>
+            <div class="img-wrapper">
+                <img src="https://res.cloudinary.com/demo/image/upload/f_png,q_100/sample.jpg" alt="PNG format" width="400" height="267">
+            </div>
+            <div class="stats">
+                <span class="label">Typical size:</span>
+                <span class="value">Largest (~1MB+)</span>
+            </div>
+        </section>
+
+        <!-- JPEG -->
+        <section class="card format-card">
+            <h2>JPEG</h2>
+            <p class="desc">The old standard. Lossy compression, good for photos but lacks modern efficiency.</p>
+            <div class="img-wrapper">
+                <img src="https://res.cloudinary.com/demo/image/upload/f_jpg,q_auto/sample.jpg" alt="JPEG format" width="400" height="267">
+            </div>
+            <div class="stats">
+                <span class="label">Typical size:</span>
+                <span class="value">Medium (~150KB)</span>
+            </div>
+        </section>
+
+        <!-- WebP -->
+        <section class="card format-card">
+            <h2>WebP</h2>
+            <p class="desc">Modern format, supports transparency. Usually 25-35% smaller than JPEG.</p>
+            <div class="img-wrapper">
+                <img src="https://res.cloudinary.com/demo/image/upload/f_webp,q_auto/sample.jpg" alt="WebP format" width="400" height="267">
+            </div>
+            <div class="stats">
+                <span class="label">Typical size:</span>
+                <span class="value">Small (~100KB)</span>
+            </div>
+        </section>
+
+        <!-- AVIF -->
+        <section class="card format-card">
+            <h2>AVIF</h2>
+            <p class="desc">Next-gen format. Superior compression. Can be 20-50% smaller than WebP!</p>
+            <div class="img-wrapper">
+                <img src="https://res.cloudinary.com/demo/image/upload/f_avif,q_auto/sample.jpg" alt="AVIF format" width="400" height="267">
+            </div>
+            <div class="stats">
+                <span class="label">Typical size:</span>
+                <span class="value">Smallest (~70KB)</span>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

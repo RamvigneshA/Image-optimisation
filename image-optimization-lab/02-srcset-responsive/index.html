@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Responsive Images (srcset)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Responsive Images with <code>srcset</code> and <code>sizes</code></h1>
+        <p>Serving the right image size for the user's viewport saves bandwidth.</p>
+        <div class="instructions">
+            <strong>DevTools Experiment:</strong>
+            <ol>
+                <li>Open DevTools and go to the <strong>Network</strong> tab.</li>
+                <li>Filter by "Img" and clear the network log.</li>
+                <li>Ensure "Disable cache" is checked.</li>
+                <li>Resize your browser window from mobile width (&lt; 600px) to desktop width (&gt; 1000px) and reload. Observe which image priority is requested and what the file size is compared to others.</li>
+            </ol>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Resolution Switching</h2>
+            <p>The browser automatically picks the most appropriate image based on the viewport width (<code>vw</code>) and screen density.</p>
+            
+            <img 
+                src="https://picsum.photos/id/1025/1200/800" 
+                alt="Pug wrapped in a blanket"
+                srcset="
+                    https://picsum.photos/id/1025/400/267 400w,
+                    https://picsum.photos/id/1025/800/533 800w,
+                    https://picsum.photos/id/1025/1200/800 1200w"
+                sizes="(max-width: 768px) 100vw, 800px"
+                width="1200" height="800"
+            >
+            <div class="caption">
+                <p><strong>400w</strong>: Loaded on small screens (&lt; 400px wide).</p>
+                <p><strong>800w</strong>: Loaded on medium screens.</p>
+                <p><strong>1200w</strong>: Loaded on large screens or high-density (Retina) displays.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

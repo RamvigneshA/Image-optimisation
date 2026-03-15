@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - Picture Format Fallback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Format Fallbacks with <code>&lt;picture&gt;</code></h1>
+        <p>Serve next-gen image formats like AVIF or WebP to browsers that support them, while falling back to JPEG for older browsers.</p>
+        <div class="instructions">
+            <strong>DevTools Experiment:</strong>
+            <ol>
+                <li>Open DevTools and go to the <strong>Network</strong> tab.</li>
+                <li>Filter by "Img".</li>
+                <li>Reload the page and see which format downloaded (Type column). It will likely be <code>avif</code> if you are on a modern browser.</li>
+                <li>To see the fallback, use the "Network request blocking" tab in DevTools to block <code>*f_avif*</code>, then reload to see WebP load!</li>
+            </ol>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Next-Gen Format Fallback</h2>
+            <p>The browser reads from top to bottom and downloads the first format it supports.</p>
+            
+            <picture>
+                <!-- Browser checks if it supports AVIF -->
+                <source srcset="https://res.cloudinary.com/demo/image/upload/f_avif,q_auto/sample.jpg" type="image/avif">
+                <!-- If not, it checks if it supports WebP -->
+                <source srcset="https://res.cloudinary.com/demo/image/upload/f_webp,q_auto/sample.jpg" type="image/webp">
+                <!-- If all else fails, it loads the standard JPEG -->
+                <img src="https://res.cloudinary.com/demo/image/upload/f_jpg,q_auto/sample.jpg" alt="Colorful flowers" width="864" height="576">
+            </picture>
+            
+            <div class="code-snippet">
+                <code>
+                    &lt;picture&gt;<br>
+                    &nbsp;&nbsp;&lt;source srcset="...avif" type="image/avif"&gt;<br>
+                    &nbsp;&nbsp;&lt;source srcset="...webp" type="image/webp"&gt;<br>
+                    &nbsp;&nbsp;&lt;img src="...jpg" alt="..."&gt;<br>
+                    &lt;/picture&gt;
+                </code>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

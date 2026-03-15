@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Basic Image & Layout Shift</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Basic <code>&lt;img&gt;</code> Usage & Cumulative Layout Shift (CLS)</h1>
+        <p>This page demonstrates the importance of using <code>width</code> and <code>height</code> attributes on images to prevent Layout Shift.</p>
+        <div class="instructions">
+            <strong>DevTools Experiment:</strong>
+            <ol>
+                <li>Open DevTools (F12) and go to the <strong>Network</strong> tab.</li>
+                <li>Set throttling to "Fast 3G" or "Slow 3G".</li>
+                <li>Reload the page and observe how the text jumps when the first image loads (Layout Shift).</li>
+                <li>The second image reserves its space immediately, preventing the content below from jumping.</li>
+            </ol>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Image 1: Without explicit dimensions (Causes Layout Shift)</h2>
+            <p>Notice how this text is initially pushed down when the image finishes loading, because the browser didn't know how much space to reserve.</p>
+            <img src="https://picsum.photos/id/1015/800/600" alt="River in a valley">
+            <p>Some content below the image that gets pushed down...</p>
+        </section>
+
+        <section class="card">
+            <h2>Image 2: With width and height attributes (No Layout Shift)</h2>
+            <p>The browser reserves the correct aspect ratio space before the image even loads. No text jumping!</p>
+            <img src="https://picsum.photos/id/1016/800/600" alt="Mountains" width="800" height="600">
+            <p>Content below this image stays exactly where it is.</p>
+        </section>
+    </main>
+</body>
+</html>

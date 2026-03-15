@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - Fetch Priority</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Fetch Priority</h1>
+        <p>Use <code>fetchpriority="high"</code> to tell the browser which images are critically important (like the LCP hero image).</p>
+        <div class="instructions">
+            <strong>DevTools Experiment:</strong>
+            <ol>
+                <li>Open DevTools and go to the <strong>Network</strong> tab.</li>
+                <li>Filter by "Img". Right-click the column headers and ensure the "Priority" column is visible.</li>
+                <li>Reload the page and observe the priority assigned to each image.</li>
+                <li>The Hero image should be "High", the normal image "Low" (initially), and the lazy image "Lowest" (or unrequested until scrolled).</li>
+            </ol>
+        </div>
+    </header>
+
+    <main>
+        <section class="card hero-section">
+            <h2>Hero Image (High Priority)</h2>
+            <p>This is the most important image on the page (LCP candidate), so we explicitly boost its priority.</p>
+            <img src="https://picsum.photos/id/1040/1200/600" fetchpriority="high" alt="Hero image" width="1200" height="600">
+        </section>
+
+        <section class="card">
+            <h2>Normal Image (Default Priority)</h2>
+            <p>The browser decides when to load this based on its own heuristics.</p>
+            <img src="https://picsum.photos/id/1041/800/400" alt="Normal image" width="800" height="400">
+        </section>
+        
+        <div class="spacer">Scroll down</div>
+
+        <section class="card">
+            <h2>Lazy Image (Lowest Priority)</h2>
+            <p>This image is offscreen and has <code>loading="lazy"</code>.</p>
+            <img src="https://picsum.photos/id/1042/800/400" loading="lazy" alt="Lazy image" width="800" height="400">
+        </section>
+    </main>
+</body>
+</html>

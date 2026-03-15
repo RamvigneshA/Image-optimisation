@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - Native Lazy Loading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Native Lazy Loading with <code>loading="lazy"</code></h1>
+        <p>Defer loading of offscreen images until the user scrolls near them, saving initial bandwidth and CPU.</p>
+        <div class="instructions">
+            <strong>DevTools Experiment:</strong>
+            <ol>
+                <li>Open DevTools and go to the <strong>Network</strong> tab.</li>
+                <li>Filter by "Img".</li>
+                <li>Notice how only the first (eager) image loaded initially.</li>
+                <li>Scroll down the page slowly and observe new image requests triggering just before you reach them.</li>
+            </ol>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Eager Image (Above the fold)</h2>
+            <p>This image loads immediately because it is visible in the initial viewport.</p>
+            <img src="https://picsum.photos/id/1031/800/400" alt="Eager image" width="800" height="400">
+        </section>
+
+        <!-- Spacer to push next images offscreen -->
+        <div class="spacer">Scroll down to see lazy loading in action ⬇️</div>
+
+        <section class="card">
+            <h2>Lazy Image 1</h2>
+            <p>This image uses <code>loading="lazy"</code>.</p>
+            <img src="https://picsum.photos/id/1032/800/400" loading="lazy" alt="Lazy image 1" width="800" height="400">
+        </section>
+
+        <div class="spacer">Keep scrolling ⬇️</div>
+
+        <section class="card">
+            <h2>Lazy Image 2</h2>
+            <p>This image also uses <code>loading="lazy"</code>.</p>
+            <img src="https://picsum.photos/id/1033/800/400" loading="lazy" alt="Lazy image 2" width="800" height="400">
+        </section>
+
+        <div class="spacer">Almost there ⬇️</div>
+
+        <section class="card">
+            <h2>Lazy Image 3</h2>
+            <p>Native lazy loading is built right into modern browsers without needing JavaScript libraries.</p>
+            <img src="https://picsum.photos/id/1035/800/400" loading="lazy" alt="Lazy image 3" width="800" height="400">
+        </section>
+    </main>
+</body>
+</html>
